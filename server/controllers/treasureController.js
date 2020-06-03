@@ -21,5 +21,12 @@ module.exports = {
         
         const userTreasure = await dbInstance.add_user_treasure([treasureURL, id])
         return res.status(200).send(userTreasure)      
+    }, 
+
+    getAllTreasure: async (req, res) => {
+        const dbInstance = req.app.get('db')
+
+        const allTreasure = await dbInstance.get_all_treasure()
+        return res.status(200).send(allTreasure)
     }
 }
